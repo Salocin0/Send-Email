@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { sendEmail } from './emailSender.js';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json());
+app.use(cors());
 
 // Test route
 app.get('/', (req, res) => {
